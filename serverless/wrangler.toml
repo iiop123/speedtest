@@ -1,0 +1,6 @@
+name = "speedtest"
+main = "./index.js"
+compatibility_date = "2023-01-07"
+
+[site]
+bucket = "./public"
