@@ -6,22 +6,22 @@
 <img src='https://img.dingding.wtf/api/img/CkyX4s' width='80%'>
 
 ------------
-##DEMO
+## DEMO
 [Link](https://speed.dingding.wtf/ "Link")
 ##### 用户名：rio
 ##### 密码：456
 ## 部署方法
 
-####先安装Cloudflare Workers.命令行工具wrangler
+#### 先安装Cloudflare Workers.命令行工具wrangler
     npm install -g wrangler
 
-####登录cloudflare
+#### 登录cloudflare
     wrangler login
 
-####下载代码
+#### 下载代码
     git clone git@github.com:iiop123/speedtest.git
 
-####执行npm i 安装库，并推送到Cloudflare
+#### 执行npm i 安装库，并推送到Cloudflare
     npm i && wrangler publish
 
 
