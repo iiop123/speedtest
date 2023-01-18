@@ -17,6 +17,8 @@ var dlProgress = 0; //progress of download test 0-1
 var ulProgress = 0; //progress of upload test 0-1
 var pingProgress = 0; //progress of ping+jitter test 0-1
 var testId = null; //test ID (sent back by telemetry if used, null otherwise)
+let dlurl='https://tesla-cdn.thron.com/static/A7I6LP_lane_change_0.mp4-2000_PYSUF4.mp4' //下载测速用的测速文件
+let emptyurl='/empty?'
 
 var log = ""; //telemetry log
 function tlog(s) {
@@ -377,7 +379,7 @@ function dlTest(done) {
 					if (settings.xhr_dlUseBlob) xhr[i].responseType = "blob";
 					else xhr[i].responseType = "arraybuffer";
 				} catch (e) {}
-				xhr[i].open("GET", '/25.dat', true); // random string to prevent caching
+				xhr[i].open("GET", dlurl, true); // random string to prevent caching
 				xhr[i].send();
 			}.bind(this),
 			1 + delay
@@ -520,7 +522,7 @@ function ulTest(done) {
 							if (settings.xhr_ignoreErrors === 1) testStream(i, 0); //restart stream
 						}.bind(this);
 						// send xhr
-						xhr[i].open("POST", '/empty?' + "r=" + Math.random(), true);// random string to prevent caching
+						xhr[i].open("POST", emptyurl + "r=" + Math.random(), true);// random string to prevent caching
 						try {
 							xhr[i].setRequestHeader("Content-Encoding", "identity"); // disable compression (some browsers may refuse it, but data is incompressible anyway)
 						} catch (e) {}
@@ -680,7 +682,7 @@ function pingTest(done) {
 			}
 		}.bind(this);
 		// send xhr
-		xhr[0].open("GET", '/empty?' + "r=" + Math.random(), true); // random string to prevent caching
+		xhr[0].open("GET", emptyurl + "r=" + Math.random(), true); // random string to prevent caching
 		xhr[0].send();
 	}.bind(this);
 	doPing(); // start first ping

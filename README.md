@@ -3,13 +3,15 @@
 #### - 基于LibreSpeed的NodeJS版本(肯定也支持多线程测速)
 #### - 测速文件存在CloudFlare KV数据库中
 #### - 可设置Basic Authentication验证登录，防止不法分子刷流量
-<img src='https://img.dingding.wtf/api/img/CkyX4s' width='80%'>
+
+:chart_with_upwards_trend:
+## 更新LOG
+- 由于Workers连接数限制，直接偷特斯拉官网静态资源作为测速文件，嘎嘎快
 
 ------------
 ## DEMO
 [Link](https://speed.dingding.wtf/ "Link")
-##### 用户名：rio
-##### 密码：456
+
 ## 部署方法
 
 #### 先安装Cloudflare Workers.命令行工具wrangler
