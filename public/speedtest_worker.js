@@ -17,7 +17,7 @@ var dlProgress = 0; //progress of download test 0-1
 var ulProgress = 0; //progress of upload test 0-1
 var pingProgress = 0; //progress of ping+jitter test 0-1
 var testId = null; //test ID (sent back by telemetry if used, null otherwise)
-let dlurl='https://tesla-cdn.thron.com/static/A7I6LP_lane_change_0.mp4-2000_PYSUF4.mp4' //下载测速用的测速文件
+let dlurl='https://tesla-cdn.thron.com/static/9KYQO2_08_Autopilot_SX_USA._ABQA96.mp4' //下载测速用的测速文件
 let emptyurl='/empty?'
 
 var log = ""; //telemetry log
