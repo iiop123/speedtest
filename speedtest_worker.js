@@ -27,7 +27,7 @@ let nodelist={
 	aliyunhk:'https://global-prd-client-download.oss-cn-hongkong.aliyuncs.com/huobi90802c0.apk?r=',
 	cf:'https://b2.dingding.wtf/bin/100.png?r=',
 	weibo:'https://pkg.sinaimg.cn/weibo_13.3.2_vcode_6090_wm_3333_1001_so_32_64_weibo_4850_189550.apk?r=',
-	cloudfront:'https://assets2.staticimg.com/apps/android/kucoin.apk?r=',
+	alicdn:'https://video-intl.alicdn.com/The%20Journey%20of%20Alibaba%20Cloud%201min%281%29%281%29.mp4',
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r='
 }
 
@@ -724,114 +724,4 @@ async function pingTest(done) {
 						if (d <= 0) d = p.duration;
 						if (d > 0 && d < instspd) instspd = d;
 					} catch (e) {
-						//if not possible, keep the estimate
-						tverb("Performance API not supported, using estimate");
-					}
-				}
-				//noticed that some browsers randomly have 0ms ping
-				if (instspd < 1) instspd = prevInstspd;
-				if (instspd < 1) instspd = 1;
-				var instjitter = Math.abs(instspd - prevInstspd);
-				if (i === 1) ping = instspd;
-				/* first ping, can't tell jitter yet*/ else {
-					if (instspd < ping) ping = instspd; // update ping, if the instant ping is lower
-					if (i === 2) jitter = instjitter;
-					//discard the first jitter measurement because it might be much higher than it should be
-					else jitter = instjitter > jitter ? jitter * 0.3 + instjitter * 0.7 : jitter * 0.8 + instjitter * 0.2; // update jitter, weighted average. spikes in ping values are given more weight.
-				}
-				prevInstspd = instspd;
-			}
-			pingStatus = ping.toFixed(2);
-			jitterStatus = jitter.toFixed(2);
-			i++;
-			tverb("ping: " + pingStatus + " jitter: " + jitterStatus);
-			if (i < settings.count_ping) doPing();
-			else {
-				// more pings to do?
-				pingProgress = 1;
-				tlog("ping: " + pingStatus + " jitter: " + jitterStatus + ", took " + (new Date().getTime() - startT) + "ms");
-				done();
-			}
-		}.bind(this);
-		xhr[0].onerror = function() {
-			// a ping failed, cancel test
-			tverb("ping failed");
-			if (settings.xhr_ignoreErrors === 0) {
-				//abort
-				pingStatus = "Fail";
-				jitterStatus = "Fail";
-				clearRequests();
-				tlog("ping test failed, took " + (new Date().getTime() - startT) + "ms");
-				pingProgress = 1;
-				done();
-			}
-			if (settings.xhr_ignoreErrors === 1) doPing(); //retry ping
-			if (settings.xhr_ignoreErrors === 2) {
-				//ignore failed ping
-				i++;
-				if (i < settings.count_ping) doPing();
-				else {
-					// more pings to do?
-					pingProgress = 1;
-					tlog("ping: " + pingStatus + " jitter: " + jitterStatus + ", took " + (new Date().getTime() - startT) + "ms");
-					done();
-				}
-			}
-		}.bind(this);
-		// send xhr
-		if (dlurl.constructor==Array) {
-			xhr[0].open("HEAD", dlurl[0] + Math.random(), true); // random string to prevent caching
-			xhr[0].send();
-		
-		}else{
-		xhr[0].open("HEAD",  emptyurl + Math.random(), true); // random string to prevent caching
-		xhr[0].send();
-		}
-		
-	}.bind(this);
-	doPing(); // start first ping
-}
-// telemetry
-function sendTelemetry(done) {
-	if (settings.telemetry_level < 1) return;
-	xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		try {
-			var parts = xhr.responseText.split(" ");
-			if (parts[0] == "id") {
-				try {
-					var id = parts[1];
-					done(id);
-				} catch (e) {
-					done(null);
-				}
-			} else done(null);
-		} catch (e) {
-			done(null);
-		}
-	};
-	xhr.onerror = function() {
-		console.log("TELEMETRY ERROR " + xhr.status);
-		done(null);
-	};
-	xhr.open("POST", settings.url_telemetry + url_sep(settings.url_telemetry) + (settings.mpot ? "cors=true&" : "") + "r=" + Math.random(), true);
-	var telemetryIspInfo = {
-		processedString: clientIp,
-		rawIspInfo: typeof ispInfo === "object" ? ispInfo : ""
-	};
-	try {
-		var fd = new FormData();
-		fd.append("ispinfo", JSON.stringify(telemetryIspInfo));
-		fd.append("dl", dlStatus);
-		fd.append("ul", ulStatus);
-		fd.append("ping", pingStatus);
-		fd.append("jitter", jitterStatus);
-		fd.append("log", settings.telemetry_level > 1 ? log : "");
-		fd.append("extra", settings.telemetry_extra);
-		xhr.send(fd);
-	} catch (ex) {
-		var postData = "extra=" + encodeURIComponent(settings.telemetry_extra) + "&ispinfo=" + encodeURIComponent(JSON.stringify(telemetryIspInfo)) + "&dl=" + encodeURIComponent(dlStatus) + "&ul=" + encodeURIComponent(ulStatus) + "&ping=" + encodeURIComponent(pingStatus) + "&jitter=" + encodeURIComponent(jitterStatus) + "&log=" + encodeURIComponent(settings.telemetry_level > 1 ? log : "");
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send(postData);
-	}
-}
+						//
