@@ -782,11 +782,14 @@ async function pingTest(done) {
 		if (dlurl.constructor==Array) {
 			xhr[0].open("HEAD", dlurl[0] + Math.random(), true); // random string to prevent caching
 			xhr[0].send();
-		
-		}else{
-		xhr[0].open("HEAD",  emptyurl + Math.random(), true); // random string to prevent caching
+            
+		}else if(dlurl.indexOf('alicdn')!=-1){
+		xhr[0].open("HEAD",  'https://video-intl.alicdn.com/?r=' + Math.random(), true); // random string to prevent caching
 		xhr[0].send();
-		}
+		}else{
+        xhr[0].open("HEAD",  emptyurl + Math.random(), true); // random string to prevent caching
+		xhr[0].send();
+        }
 		
 	}.bind(this);
 	doPing(); // start first ping
