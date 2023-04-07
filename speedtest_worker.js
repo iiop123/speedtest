@@ -27,7 +27,6 @@ let nodelist={
 	aliyunhk:'https://global-prd-client-download.oss-cn-hongkong.aliyuncs.com/huobi90802c0.apk?r=',
 	cf:'https://b2.dingding.wtf/bin/100.png?r=',
 	weibo:'https://pkg.sinaimg.cn/weibo_13.3.2_vcode_6090_wm_3333_1001_so_32_64_weibo_4850_189550.apk?r=',
-	alicdn:'https://video-intl.alicdn.com/The%20Journey%20of%20Alibaba%20Cloud%201min%281%29%281%29.mp4?r=',
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r='
 }
 
@@ -783,9 +782,6 @@ async function pingTest(done) {
 			xhr[0].open("HEAD", dlurl[0] + Math.random(), true); // random string to prevent caching
 			xhr[0].send();
             
-		}else if(dlurl.indexOf('alicdn')!=-1){
-		xhr[0].open("HEAD",  'https://video-intl.alicdn.com/?r=' + Math.random(), true); // random string to prevent caching
-		xhr[0].send();
 		}else{
         xhr[0].open("HEAD",  emptyurl + Math.random(), true); // random string to prevent caching
 		xhr[0].send();
