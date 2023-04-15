@@ -29,7 +29,8 @@ let nodelist={
 	weibo:'https://pkg.sinaimg.cn/weibo_13.3.2_vcode_6090_wm_3333_1001_so_32_64_weibo_4850_189550.apk?r=',
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r=',
 	akamai:'https://tesla-cdn.thron.com/static/SNLGIK_Video_2_Tesla_app_-_Vehicle_Controls_BI33BH.mp4?r=',
-	aliyunsz:'https://iot-ecoflow.oss-cn-shenzhen.aliyuncs.com/apk/app-release.apk?r='
+	aliyunsz:'https://iot-ecoflow.oss-cn-shenzhen.aliyuncs.com/apk/app-release.apk?r=',
+        aliyunla:"https://sdgvip.oss-us-west-1.aliyuncs.com/apk/cuckoo/Cuckoo.apk?r="
 }
 
 var log = ""; //telemetry log
