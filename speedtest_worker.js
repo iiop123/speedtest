@@ -28,7 +28,8 @@ let nodelist={
 	cf:'https://b2.dingding.wtf/bin/100.png?r=',
 	weibo:'https://pkg.sinaimg.cn/weibo_13.3.2_vcode_6090_wm_3333_1001_so_32_64_weibo_4850_189550.apk?r=',
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r=',
-	akamai:'https://tesla-cdn.thron.com/static/SNLGIK_Video_2_Tesla_app_-_Vehicle_Controls_BI33BH.mp4?r='
+	akamai:'https://tesla-cdn.thron.com/static/SNLGIK_Video_2_Tesla_app_-_Vehicle_Controls_BI33BH.mp4?r=',
+	aliyunsz:'https://iot-ecoflow.oss-cn-shenzhen.aliyuncs.com/apk/app-release.apk?r='
 }
 
 var log = ""; //telemetry log
