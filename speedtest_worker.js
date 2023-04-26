@@ -30,7 +30,7 @@ let nodelist={
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r=',
 	akamai:'https://tesla-cdn.thron.com/static/SNLGIK_Video_2_Tesla_app_-_Vehicle_Controls_BI33BH.mp4?r=',
 	aliyunsz:'https://iot-ecoflow.oss-cn-shenzhen.aliyuncs.com/apk/app-release.apk?r=',
-        aliyunla:"https://yitechnology-website.oss-us-west-1.aliyuncs.com/app/yicamera_v4.50.1_20200320_release_google.apk?r="
+        cera:'https://vip.lz-cdn8.com/20221019/29116_985ce039/1000k/hls/88f7e2aa7e7000656.ts?r='
 }
 
 var log = ""; //telemetry log
