@@ -30,7 +30,7 @@ let nodelist={
 	qcloud:'https://dc.xiaohongshu.com/file/pkgs/base/xiaohongshu.apk?r=',
 	akamai:'https://tesla-cdn.thron.com/static/SNLGIK_Video_2_Tesla_app_-_Vehicle_Controls_BI33BH.mp4?r=',
 	aliyunsz:'https://iot-ecoflow.oss-cn-shenzhen.aliyuncs.com/apk/app-release.apk?r=',
-        cera:'https://vip.lz-cdn8.com/20221019/29116_985ce039/1000k/hls/88f7e2aa7e7000656.ts?r='
+        us:'https://f004.backblazeb2.com/file/lklcss/bin/20.png?r='
 }
 
 var log = ""; //telemetry log
